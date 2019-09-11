@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Evento</label>
+          <input type="text" class="form-control" formControlName="nombre" #nombre />
+        </div>
+        <div *ngIf="angForm.controls['nombre'].invalid && (angForm.controls['nombre'].dirty || angForm.controls['nombre'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['nombre'].errors.required">
+            Evento name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Fecha </label>
+          <input type="text" class="form-control" formControlName="fecha" #fecha />
+        </div>
+        <div *ngIf="angForm.controls['fecha'].invalid && (angForm.controls['fecha'].dirty || angForm.controls['fecha'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['fecha'].errors.required">
+            Fecha is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Tipo </label>
+          <input type="text" class="form-control" formControlName="tipo" #tipo />
+        </div>
+        <div *ngIf="angForm.controls['tipo'].invalid && (angForm.controls['tipo'].dirty || angForm.controls['tipo'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['tipo'].errors.required">
+            Tipo is required.
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4">Capacidad </label>
+            <input type="text" class="form-control" formControlName="capacidad" #capacidad />
+          </div>
+          <div *ngIf="angForm.controls['capacidad'].invalid && (angForm.controls['capacidad'].dirty || angForm.controls['capacidad'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['capacidad'].errors.required">
+              Capacidad is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <button (click)="addEvento(nombre.value, fecha.value, tipo.value, capacidad.value)"
+                [disabled]="angForm.pristine || angForm.invalid" 
+                class="btn btn-primary">
+                Add Evento
+             </button>
+        </div>
+      </form>
+    </div>
+  </div>

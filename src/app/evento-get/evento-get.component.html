@@ -1,0 +1,22 @@
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td>Nombre</td>
+        <td>Fecha</td>
+        <td>Tipo</td>
+        <td>Capacidad</td>
+        <td colspan="2">Actions</td>
+    </tr>
+    </thead>
+  
+    <tbody>
+        <tr *ngFor="let evento of eventos">
+            <td>{{ evento.nombre }}</td>
+            <td>{{ evento.fecha }}</td>
+            <td>{{ evento.tipo }}</td>
+            <td>{{ evento.capacidad }}</td>
+            <td><a [routerLink]="['edit', evento._id]" class="btn btn-primary">Edit</a></td>
+            <td><a (click) = "deleteEvento(evento._id)" class="btn btn-danger">Delete</a></td>
+  </tr>
+    </tbody>
+  </table>
