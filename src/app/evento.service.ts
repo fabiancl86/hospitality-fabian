@@ -42,10 +42,9 @@ export class EventoService {
           tipo: tipo,
           capacidad: capacidad
         };
-      this
-        .http
-        .post(`${this.uri}/update/${id}`, obj)
-        .subscribe(res => console.log('Done'));
+      return this.http.post(`${this.uri}/update/${id}`, obj);
+        //.post(`${this.uri}/update/${id}`, obj)
+        //.subscribe(res => console.log('Done'));
     }
 
     deleteEvento(id) {
@@ -53,4 +52,6 @@ export class EventoService {
                 .http
                 .get(`${this.uri}/delete/${id}`);
     }
+
+    
 }

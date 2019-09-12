@@ -31,11 +31,14 @@ export class EventoEditComponent implements OnInit {
 
     updateEvento(nombre, fecha, tipo, capacidad) {
       this.route.params.subscribe(params => {
-         this.ev.updateEvento(nombre, fecha, tipo, capacidad, params['id']);
-         this.router.navigate(['evento']);
-   })};
-
-
+         this.ev.updateEvento(nombre, fecha, tipo, capacidad, params['id'])
+         .subscribe((data: string)=>{
+            console.log(data);
+            this.router.navigate(['evento']);
+            //this.ev.getEventos();
+          })
+      });
+    }
 
   ngOnInit() {
     this.route.params.subscribe(params => {

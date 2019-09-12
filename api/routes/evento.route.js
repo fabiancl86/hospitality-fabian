@@ -50,6 +50,8 @@ eventoRoutes.route('/update/:id').post(function (req, res) {
 
         evento.save().then(evento => {
           res.json('Update complete');
+
+        //console.log(evento);
       })
       .catch(err => {
             res.status(400).send("unable to update the database");
